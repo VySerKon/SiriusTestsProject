@@ -1,0 +1,75 @@
+plugins {
+    id 'java-library'
+    id "io.freefair.lombok" version "6.0.0-m2"
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group 'guru.qa'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    testImplementation(
+            'com.codeborne:selenide:6.11.0',
+            'org.junit.jupiter:junit-jupiter:5.9.1',
+            'io.qameta.allure:allure-selenide:2.20.1',
+            "org.slf4j:slf4j-simple:2.0.6",
+            'io.rest-assured:rest-assured:5.3.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.14.1',
+            'org.aeonbits.owner:owner:1.0.4',
+            'io.github.bonigarcia:webdrivermanager:5.2.1',
+            'org.assertj:assertj-core:3.24.2')
+
+    allure {
+        version.set("2.20.1")
+        adapter {
+            allureJavaVersion.set("2.20.1")
+            aspectjVersion.set("1.9.5")
+            aspectjWeaver.set(true)
+
+            frameworks {
+                junit5 {
+                    // Defaults to allureJavaVersion
+                    adapterVersion.set("2.20.1")
+                    enabled.set(true)
+                }
+            }
+        }
+    }
+
+    testRuntimeOnly(
+            'org.slf4j:slf4j-simple:2.0.5',
+            'org.junit.jupiter:junit-jupiter-engine:5.9.1'
+    )
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+        exceptionFormat "short"
+    }
+}
+
+task simple_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("SIMPLE")
+    }
+}
