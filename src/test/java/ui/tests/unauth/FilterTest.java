@@ -11,8 +11,8 @@ import ui.pages.MainPage;
 
 import static io.qameta.allure.Allure.step;
 
-@Tag("SIMPLE")
 @DisplayName("Тесты фильтрации товаров")
+@Tag("WEB")
 public class FilterTest extends TestBase {
 
     @Test

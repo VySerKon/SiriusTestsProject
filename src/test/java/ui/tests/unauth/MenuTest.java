@@ -14,8 +14,9 @@ import java.util.stream.Stream;
 
 import static io.qameta.allure.Allure.step;
 
-@Tag("SIMPLE")
+
 @DisplayName("Тесты навигационного меню")
+@Tag("WEB")
 public class MenuTest extends TestBase {
 
     static Stream<Arguments> menuItemsProvider() {

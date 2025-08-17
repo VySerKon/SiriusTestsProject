@@ -15,11 +15,11 @@ import java.util.stream.Stream;
 
 import static io.qameta.allure.Allure.step;
 
-@Tag("SIMPLE")
+
 @DisplayName("Тесты каталога")
+@Tag("WEB")
 public class CatalogTest extends TestBase {
 
-    // Провайдер данных для открытия категорий
     static Stream<String> categoryNamesProvider() {
         return Stream.of(
                 "Клавишные инструменты",
@@ -30,7 +30,6 @@ public class CatalogTest extends TestBase {
         );
     }
 
-    // Провайдер данных для подкатегорий
     static Stream<Arguments> categoryWithSubcategories() {
         return Stream.of(
                 Arguments.of(
@@ -51,7 +50,6 @@ public class CatalogTest extends TestBase {
         );
     }
 
-    // Тест открытия категорий
     @ParameterizedTest(name = "Категория: {0}")
     @MethodSource("categoryNamesProvider")
     @DisplayName("Открытие категорий каталога")
@@ -73,10 +71,9 @@ public class CatalogTest extends TestBase {
         });
     }
 
-    // Тест проверки подкатегорий
     @ParameterizedTest(name = "Для категории {0} должны отображаться подкатегории: {1}")
     @MethodSource("categoryWithSubcategories")
-    @DisplayName("Проверка подкатегорий")
+    @DisplayName("Проверка динамического отображения подкатегорий")
     void verifyCategoryContainsSubcategories(String categoryName, List<String> expectedSubcategories) {
         step("Открыть каталог", () -> {
             new CatalogPage().openCatalog();

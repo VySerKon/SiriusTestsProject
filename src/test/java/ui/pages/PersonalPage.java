@@ -8,13 +8,11 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class PersonalPage {
-    // Элементы страницы
     public SelenideElement profileBlock = $("#user_div_reg");
     public SelenideElement emailField = $("input[name='EMAIL']");
     public SelenideElement nameField = $("input[name='NAME']");
     public SelenideElement logoutButton = $(".bar__registration");
 
-    // Методы для взаимодействия
     public PersonalPage verifyProfileVisible() {
         profileBlock.shouldBe(visible);
         return this;

@@ -6,7 +6,6 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
 public class MainPage {
     private final SelenideElement categoriesSection = $("section.section_catalog-quick-categories");

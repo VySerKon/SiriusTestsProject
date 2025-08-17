@@ -14,8 +14,8 @@ import java.util.stream.Stream;
 
 import static io.qameta.allure.Allure.step;
 
-@Tag("SIMPLE")
 @DisplayName("Тесты поиска товаров")
+@Tag("WEB")
 public class SearchTest extends TestBase {
 
 

@@ -3,6 +3,8 @@ package ui.pages;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -21,7 +23,6 @@ public class FilterPage {
 
     public FilterPage clearPriceFields() {
         scrollToFilters();
-        // Очистка через JavaScript с последующим триггером события
         executeJavaScript(
                 "arguments[0].value = ''; " +
                         "arguments[0].dispatchEvent(new Event('input')); " +
@@ -36,7 +37,7 @@ public class FilterPage {
                 maxPriceInput
         );
 
-        // Дополнительная проверка, что поля действительно пустые
+
         minPriceInput.shouldHave(value(""));
         maxPriceInput.shouldHave(value(""));
         return this;
@@ -62,7 +63,7 @@ public class FilterPage {
 
     public FilterPage selectCasio() {
         casioCheckbox.scrollIntoView("{block: 'center'}");
-        casioCheckbox.shouldBe(visible).click();
+        casioCheckbox.shouldBe(visible, Duration.ofSeconds(5)).click();
         return this;
     }
 
