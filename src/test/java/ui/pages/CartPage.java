@@ -68,4 +68,17 @@ public class CartPage {
                 .shouldBe(visible);
     }
 
+    private final SelenideElement articleNumber = $("div[data-column-property-code='PROPERTY_CML2_ARTICLE_VALUE']");
+    private final SelenideElement productName = $("div[data-column-property-code='PREVIEW_TEXT'] a");
+
+    public CartPage verifyArticleNumber(String expectedArticle) {
+        articleNumber.shouldHave(text(expectedArticle));
+        return this;
+    }
+
+    public CartPage verifyProductName(String expectedProductName) {
+        productName.shouldHave(text(expectedProductName));
+        return this;
+    }
+
 }

@@ -91,4 +91,11 @@ public class MainPage {
     public FilterPage openFilters() {
         return new FilterPage(); // Если фильтры сразу видны
     }
+
+    private final SelenideElement cartLink = $("a[href='/personal/cart/']");
+
+    public MainPage openCart() {
+        cartLink.scrollIntoView("{block: 'center'}").click();
+        return this;
+    }
 }

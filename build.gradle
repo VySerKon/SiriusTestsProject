@@ -62,6 +62,12 @@ task web_test(type: Test) {
     }
 }
 
+task hybrid_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("HYBRID")
+    }
+}
+
 
 
 //'io.rest-assured:rest-assured:5.3.1',
