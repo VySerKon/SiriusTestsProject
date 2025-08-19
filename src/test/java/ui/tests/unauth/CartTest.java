@@ -13,6 +13,7 @@ import static io.qameta.allure.Allure.step;
 
 @DisplayName("Тесты корзины товаров")
 @Tag("WEB")
+@Tag("CART")
    public class CartTest extends TestBase {
 
     private static final String EXPECTED_ARTICLE = "STD MN GBK";

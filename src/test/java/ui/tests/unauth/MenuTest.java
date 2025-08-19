@@ -17,6 +17,7 @@ import static io.qameta.allure.Allure.step;
 
 @DisplayName("Тесты навигационного меню")
 @Tag("WEB")
+@Tag("MENU")
 public class MenuTest extends TestBase {
 
     static Stream<Arguments> menuItemsProvider() {

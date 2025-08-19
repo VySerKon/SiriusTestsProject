@@ -48,27 +48,6 @@ public class TestBase {
         String password = System.getProperty("password", "1234");
         Configuration.remote = String.format("https://%s:%s@%s/wd/hub", login, password, selenoid);
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
-//
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        Configuration.browserCapabilities = capabilities;
-//        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-//                "enableVNC", true,
-//                "enableVideo", true
-//        ));
-//        String browserName = System.getProperty("browserName", "chrome");
-//        String browserVersion = System.getProperty("browserVersion", "128.0");
-//        String windowSize = System.getProperty("windowSize", "1920x1080");
-//
-//        Configuration.browser = browserName;
-//        Configuration.browserVersion = browserVersion;
-//        Configuration.browserSize = windowSize;
-//
-//        String selenoid = System.getProperty("selenoid", "ru.selenoid.autotests.cloud");
-//        String login = System.getProperty("login", "user1");
-//        String password = System.getProperty("password", "1234");
-//        Configuration.remote = String.format("https://%s:%s@%s/wd/hub", login, password, selenoid);
-//        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach

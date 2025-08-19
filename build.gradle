@@ -62,11 +62,66 @@ task web_test(type: Test) {
     }
 }
 
+task cart_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("CART")
+    }
+}
+
+task catalog_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("CATALOG")
+    }
+}
+
+task filter_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("FILTER")
+    }
+}
+
+task menu_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("MENU")
+    }
+}
+
+task search_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("SEARCH")
+    }
+}
+
 task hybrid_test(type: Test) {
     useJUnitPlatform {
         includeTags("HYBRID")
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

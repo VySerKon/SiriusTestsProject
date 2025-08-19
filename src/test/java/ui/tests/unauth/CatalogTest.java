@@ -18,6 +18,7 @@ import static io.qameta.allure.Allure.step;
 
 @DisplayName("Тесты каталога")
 @Tag("WEB")
+@Tag("CATALOG")
 public class CatalogTest extends TestBase {
 
     static Stream<String> categoryNamesProvider() {

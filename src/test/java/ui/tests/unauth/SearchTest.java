@@ -16,6 +16,7 @@ import static io.qameta.allure.Allure.step;
 
 @DisplayName("Тесты поиска товаров")
 @Tag("WEB")
+@Tag("SEARCH")
 public class SearchTest extends TestBase {
 
 
