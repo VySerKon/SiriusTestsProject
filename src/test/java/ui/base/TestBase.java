@@ -21,6 +21,14 @@ public class TestBase {
 
     @BeforeAll
     static void setup() {
+
+        Configuration.baseUrl = "https://siriusmusic.ru";
+        Configuration.timeout = 10000;
+        Configuration.pageLoadTimeout = 10000;
+        Configuration.browserSize = "1920x1080";
+        Configuration.pageLoadStrategy = "eager";
+        RestAssured.baseURI = "https://siriusmusic.ru";
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         Configuration.browserCapabilities = capabilities;
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
@@ -41,12 +49,6 @@ public class TestBase {
         Configuration.remote = String.format("https://%s:%s@%s/wd/hub", login, password, selenoid);
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
-//        Configuration.baseUrl = "https://siriusmusic.ru";
-//        Configuration.timeout = 10000;
-//        Configuration.pageLoadTimeout = 10000;
-//        Configuration.browserSize = "1920x1080";
-//        Configuration.pageLoadStrategy = "eager";
-//        RestAssured.baseURI = "https://siriusmusic.ru";
 //
 //        DesiredCapabilities capabilities = new DesiredCapabilities();
 //        Configuration.browserCapabilities = capabilities;
@@ -94,12 +96,5 @@ public class TestBase {
             }
         }
     }
-
-//    void addAttachments() {
-//        helpers.Attach.screenshotAs("Last screenshot");
-//        helpers.Attach.pageSource();
-//        helpers.Attach.browserConsoleLogs();
-//        helpers.Attach.addVideo();
-//    }
 }
 
