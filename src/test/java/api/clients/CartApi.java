@@ -2,11 +2,7 @@ package api.clients;
 
 import api.specs.BaseSpec;
 import io.restassured.response.Response;
-
-import java.util.Map;
-
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
 public class CartApi {
 
@@ -37,7 +33,6 @@ public class CartApi {
 
     public static boolean clearCart(String phpsessid, String bitrixLogin, String guestId) {
         try {
-            // 1. Отправляем запрос на очистку корзины
             Response clearResponse = given()
                     .spec(BaseSpec.requestSpec)
                     .cookie("PHPSESSID", phpsessid)
@@ -46,20 +41,18 @@ public class CartApi {
                     .header("content-type", "application/x-www-form-urlencoded")
                     .header("accept", "*/*")
                     .header("origin", "https://siriusmusic.ru")
-                    .header("referer", "https://siriusmusic.ru/login/") // Важно правильное referer!
+                    .header("referer", "https://siriusmusic.ru/login/")
                     .header("bx-ajax", "true")
                     .header("priority", "u=1, i")
                     .formParam("delete", "all")
                     .when()
                     .post("/ajax/getSmallBasketProducts.php");
 
-            // 2. Проверяем ответ
             if (clearResponse.statusCode() != 200) {
                 System.err.println("Clear cart failed. Status: " + clearResponse.statusCode());
                 return false;
             }
 
-            // 3. Проверяем, что корзина действительно пуста
             Response cartResponse = getCartContent(phpsessid, bitrixLogin);
             String cartContent = cartResponse.getBody().asString();
 

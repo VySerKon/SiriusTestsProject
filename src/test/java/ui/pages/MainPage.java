@@ -89,7 +89,7 @@ public class MainPage {
     }
 
     public FilterPage openFilters() {
-        return new FilterPage(); // Если фильтры сразу видны
+        return new FilterPage();
     }
 
     private final SelenideElement cartLink = $("a[href='/personal/cart/']");

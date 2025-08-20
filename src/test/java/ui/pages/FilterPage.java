@@ -44,7 +44,6 @@ public class FilterPage {
     }
 
     public FilterPage setPriceRange(int min, int max) {
-        // Установка значений через JavaScript с триггером событий
         setPriceWithJs(minPriceInput, min);
         setPriceWithJs(maxPriceInput, max);
         return this;

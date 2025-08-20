@@ -2,19 +2,14 @@ package ui.tests.auth;
 
 import api.clients.AuthApi;
 import api.clients.CartApi;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ui.base.TestBase;
 import ui.pages.CartPage;
 
 
 import static com.codeborne.selenide.Selenide.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ClearCartUiTest extends TestBase {

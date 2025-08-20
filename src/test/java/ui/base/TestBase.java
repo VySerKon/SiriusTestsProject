@@ -58,22 +58,27 @@ public class TestBase {
         helpers.Attach.pageSource();
         helpers.Attach.browserConsoleLogs();
         helpers.Attach.addVideo();
-
-        try {
-            // 1. Пробую API-логаут если есть данные
-            if (lastPhpsessid != null && lastAuthCookie != null) {
-                AuthApi.apiLogout(lastPhpsessid, lastAuthCookie);
-            }
-        } catch (Throwable e) {
-            System.out.println("API логаут не удался, пробуем UI: " + e.getMessage());
-            // 2. Фолбэк на UI логаут
-            new PersonalPage().closePersonalPage();
-        } finally {
-            // 3. Всегда чистим куки
-            if (WebDriverRunner.hasWebDriverStarted()) {
-                WebDriverRunner.getWebDriver().manage().deleteAllCookies();
-            }
-        }
+        WebDriverRunner.closeWebDriver();
     }
 }
 
+
+
+
+
+
+//try {
+//        // 1. Пробую API-логаут если есть данные
+//        if (lastPhpsessid != null && lastAuthCookie != null) {
+//        AuthApi.apiLogout(lastPhpsessid, lastAuthCookie);
+//            }
+//                    } catch (Throwable e) {
+//        System.out.println("API логаут не удался, пробуем UI: " + e.getMessage());
+//        // 2. Фолбэк на UI логаут
+//        new PersonalPage().closePersonalPage();
+//        } finally {
+//                // 3. Всегда чистим куки
+//                if (WebDriverRunner.hasWebDriverStarted()) {
+//        WebDriverRunner.getWebDriver().manage().deleteAllCookies();
+//            }
+//                    }

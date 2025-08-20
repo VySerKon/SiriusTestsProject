@@ -11,7 +11,6 @@ public class PersonalPage {
     public SelenideElement profileBlock = $("#user_div_reg");
     public SelenideElement emailField = $("input[name='EMAIL']");
     public SelenideElement nameField = $("input[name='NAME']");
-    public SelenideElement logoutButton = $(".bar__registration");
 
     public PersonalPage verifyProfileVisible() {
         profileBlock.shouldBe(visible);
@@ -21,11 +20,6 @@ public class PersonalPage {
     public PersonalPage verifyUserData(String email, String name) {
         emailField.shouldHave(value(email));
         nameField.shouldHave(value(name));
-        return this;
-    }
-
-    public PersonalPage closePersonalPage() {
-        logoutButton.shouldBe(visible).click();
         return this;
     }
 

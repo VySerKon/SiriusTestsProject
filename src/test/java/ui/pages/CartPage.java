@@ -11,7 +11,6 @@ public class CartPage {
     private final SelenideElement basketHeader = $(".basket-items-list-header-filter-item.active");
     private final SelenideElement itemTable = $("#basket-item-table");
     private final SelenideElement itemArticle = $(".basket-item-property-article");
-    private final SelenideElement emptyCartMessage = $("#basket-item-list-empty-result");
 
     public void verifyCartNotEmpty() {
         basketHeader.shouldBe(visible)
@@ -22,12 +21,6 @@ public class CartPage {
     public void verifyItemPresent(String expectedArticle) {
         itemArticle.shouldBe(visible)
                 .shouldHave(text(expectedArticle));
-    }
-
-    public void verifyCartIsEmpty() {
-        emptyCartMessage.shouldBe(visible)
-                .$(".basket-search-not-found-text")
-                .shouldHave(text("По данному запросу товаров не найдено"));
     }
 
     public void deleteItem(String itemArticle) {
@@ -53,20 +46,6 @@ public class CartPage {
         $("[data-entity='basket-item-restore-button']").shouldBe(visible);
     }
 
-
-    public void restoreItem() {
-        $("[data-entity='basket-item-restore-button']")
-                .hover()
-                .click();
-        $(".basket-items-list-item-notification-removed")
-                .should(disappear);
-    }
-
-    public void verifyItemRestored(String itemArticle) {
-        $$(".basket-items-list-item-container")
-                .findBy(text(itemArticle))
-                .shouldBe(visible);
-    }
 
     private final SelenideElement articleNumber = $("div[data-column-property-code='PROPERTY_CML2_ARTICLE_VALUE']");
     private final SelenideElement productName = $("div[data-column-property-code='PREVIEW_TEXT'] a");

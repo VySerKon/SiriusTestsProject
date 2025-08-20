@@ -1,17 +1,14 @@
 package api.clients;
 
-import api.specs.BaseSpec;
 import com.codeborne.selenide.WebDriverRunner;
 import io.restassured.response.Response;
 import org.openqa.selenium.Cookie;
 
-import java.util.Map;
 
 import static api.specs.AuthSpec.responseAuthSpec;
 import static api.specs.BaseSpec.redirectSpec;
 import static api.specs.BaseSpec.requestSpec;
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class AuthApi {
     private static final String EMAIL = "simpleaccounttest@mail.ru";

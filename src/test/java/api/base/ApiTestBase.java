@@ -35,10 +35,6 @@ public class ApiTestBase {
                         .getCookies();
                 System.out.println("Current cookies: " + cookies);
 
-                // Очищаем корзину
-                //CartApi.clearCart(testPhpsessid, testAuthCookie, testGuestId);
-
-                // Выход из системы
                 AuthApi.apiLogout(testPhpsessid, testAuthCookie);
             } catch (Throwable e) {
                 System.err.println("API cleanup failed: " + e.getMessage());
