@@ -23,13 +23,21 @@
 
 # <a name="Технологии и инструменты">Технологии и инструменты</a>
 <p  align="center">
-  <code><img width="7%" title="IntelliJ IDEA" src="images/IDEA-logo.svg"></code>
-  <code><img width="7%" title="Java" src="images/java-logo.svg"></code>
-  <code><img width="7%" title="Selenide" src="images/selenide-logo.svg"></code>
-  <code><img width="7%" title="REST-Assured" src="images/rest-assured-logo.svg"></code>
-  <code><img width="7%" title="Selenoid" src="images/selenoid-logo.svg"></code>
-  <code><img width="7%" title="Gradle" src="images/gradle-logo.svg"></code>
-  <code><img width="7%" title="JUnit5" src="images/junit5-logo.svg"></code>
-  <code><img width="7%" title="Allure Report" src="images/allure-Report-logo.svg"></code>
-  <code><img width="7%" title="Jenkins" src="images/jenkins-logo.svg"></code>
+  <code><img width="8%" title="IntelliJ IDEA" src="images/IDEA-logo.svg"></code>
+  <code><img width="8%" title="Java" src="images/java-logo.svg"></code>
+  <code><img width="8%" title="Selenide" src="images/selenide-logo.svg"></code>
+  <code><img width="8%" title="Selenoid" src="images/selenoid-logo.svg"></code>
+  <code><img width="8%" title="Gradle" src="images/gradle-logo.svg"></code>
+  <code><img width="8%" title="JUnit5" src="images/junit5-logo.svg"></code>
+  <code><img width="8%" title="Allure Report" src="images/allure-Report-logo.svg"></code>
+  <code><img width="8%" title="Jenkins" src="images/jenkins-logo.svg"></code>
  </p>
+
+- JUnit 5 служит основным фреймворком для написания и запуска тестов.
+- Для UI-автотестов используем связку Java + Selenide — это дает нам лаконичный и стабильный код.
+- Gradle отвечает за сборку проекта и управление зависимостями.
+- Jenkins автоматически запускает тесты в Selenoid — это быстрые и изолированные запуски.
+- После прогона Allure Report формирует детальную визуализацию результатов.
+
+ 
+ 
