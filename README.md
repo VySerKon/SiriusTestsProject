@@ -52,7 +52,7 @@
 - search_test
 
 Для подобного гибкого запуска тестов в `Jenkins` была реализована параметризованная сборка с возможностью выбора той или иной группы тестов через Choice Parameter = TASK , а также возможность выбора других параметров:
-<img src="images/Jenkins.png" alt="JenkinsBuildParameters" width="950">
+<img src="images/paramscrin.png" alt="JenkinsBuildParameters" width="950">
 
  
 
