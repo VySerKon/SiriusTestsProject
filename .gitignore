@@ -3,6 +3,7 @@ HELP.md
 ### Java ###
 *.class
 !notifications/allure-notifications-4.9.0.jar
+!images/SiriusIcon.jpg
 *.war
 *.ear
 *.nar
