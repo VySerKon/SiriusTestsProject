@@ -52,7 +52,23 @@
 - search_test
 
 Для подобного гибкого запуска тестов в `Jenkins` была реализована параметризованная сборка с возможностью выбора той или иной группы тестов через Choice Parameter = TASK , а также возможность выбора других параметров:
-<img src="images/Jenkins.png" alt="JenkinsBuildParameters" width="950">
+```
+clean
+${TASK}
+-Dselenoid=${SELENOID}
+-DbrowserName=${BROWSER_NAME}
+-DwindowSize=${WINDOW_SIZE}
+-DbrowserVersion=${VERSION_OF_BROWSER}
+-Dlogin=${LOGIN}
+-Dpassword=${PASSWORD}
+```
+<img src="images/paramscrin.JPG" alt="JenkinsBuildParameters" width="950">
+<img src="images/scrin1.JPG" alt="Jenkinsmain" width="950">
+
+<img src="images/scrin2.JPG" alt="Jenkinsallure1" width="950">
+
+<img src="images/scrin3.JPG" alt="Jenkinsallure2" width="950">
+
 
  
 
