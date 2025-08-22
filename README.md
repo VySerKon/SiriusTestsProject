@@ -6,7 +6,7 @@
 
 - [Технологии и инструменты](#Технологии-и-инструменты)
 - [Выполняемые проверки](#Выполняемые-проверки)
-- [Запуск тестов в Jenkins](#Запуск-в-Jenkins)
+- [Запуск тестов в Jenkins](#Запуск-тестов-в-Jenkins)
 - [Allure отчёт](#Allure-отчёт)
 - [Видео с примером запуска тестов в Selenoid](#video)
  
@@ -42,7 +42,7 @@
 Реализован подход Page Object а также параметризация
 
 
-## Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/SiriusProject/)
+## <a name="Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/SiriusProject/)">Запуск тестов в Jenkins</a>
 Локально каждая группа тестов запускается командой ```gradle clean <Tag>``` , где ```<Tag>``` - это:
 - web_test
 - cart_test
