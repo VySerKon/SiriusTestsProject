@@ -63,6 +63,12 @@ ${TASK}
 -Dpassword=${PASSWORD}
 ```
 <img src="images/paramscrin.JPG" alt="JenkinsBuildParameters" width="950">
+<img src="images/scrin1.JPG" alt="Jenkinsmain" width="950">
+
+<img src="images/scrin2.JPG" alt="Jenkinsallure1" width="950">
+
+<img src="images/scrin3.JPG" alt="Jenkinsallure2" width="950">
+
 
  
 
