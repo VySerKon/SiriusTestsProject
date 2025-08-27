@@ -42,7 +42,7 @@
 Реализован подход Page Object а также параметризация
 
 
-## <a name="Запуск тестов в Jenkins>Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/SiriusProject/)</a>
+## <a name="Запуск тестов в Jenkins">Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/SiriusProject/)</a>
 Локально каждая группа тестов запускается командой ```gradle clean <Tag>``` , где ```<Tag>``` - это:
 - web_test
 - cart_test
