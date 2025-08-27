@@ -42,7 +42,7 @@
 Реализован подход Page Object а также параметризация
 
 
-## <a name="Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/SiriusProject/)">Запуск тестов в Jenkins</a>
+## <a name="Запуск тестов в Jenkins>Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/SiriusProject/)</a>
 Локально каждая группа тестов запускается командой ```gradle clean <Tag>``` , где ```<Tag>``` - это:
 - web_test
 - cart_test
@@ -65,7 +65,7 @@ ${TASK}
 <img src="images/paramscrin.JPG" alt="JenkinsBuildParameters" width="950">
 <img src="images/scrin1.JPG" alt="Jenkinsmain" width="950">
 
-## <a name="Allure отчёт">Allure отчёт</a> 
+## <a name="Allure отчёт">[Allure](https://jenkins.autotests.cloud/job/SiriusProject/20/allure/) отчёт</a> 
 
 После прогона тестов через страницу запусков в `Jenkins` есть возможность просмотреть результаты выполнения тестов в ` Report`
 На странице отчёта отображено общее количество запущенных тестов и процентное соотношение успешных и упавших тестов, подкреплённых диаграммой.
