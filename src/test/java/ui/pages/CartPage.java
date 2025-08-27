@@ -1,7 +1,10 @@
 package ui.pages;
 
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -11,6 +14,10 @@ public class CartPage {
     private final SelenideElement basketHeader = $(".basket-items-list-header-filter-item.active");
     private final SelenideElement itemTable = $("#basket-item-table");
     private final SelenideElement itemArticle = $(".basket-item-property-article");
+    private final SelenideElement articleNumber = $("div[data-column-property-code='PROPERTY_CML2_ARTICLE_VALUE']");
+    private final SelenideElement productName = $("div[data-column-property-code='PREVIEW_TEXT'] a");
+    private final ElementsCollection itemContainers = $$(".basket-items-list-item-container");
+    private final By deleteButton = By.cssSelector("[data-entity='basket-item-delete']");
 
     public void verifyCartNotEmpty() {
         basketHeader.shouldBe(visible)
@@ -23,14 +30,13 @@ public class CartPage {
                 .shouldHave(text(expectedArticle));
     }
 
-    public void deleteItem(String itemArticle) {
-        SelenideElement itemContainer = $$(".basket-items-list-item-container")
-                .findBy(text(itemArticle))
+    public void deleteItem(String article) {
+        SelenideElement itemContainer = itemContainers
+                .findBy(text(article))
                 .shouldBe(visible);
-                itemContainer.hover();
-                itemContainer.findAll("[data-entity='basket-item-delete']")
-                .filter(visible)
-                .first()
+
+        itemContainer.hover();
+        itemContainer.find(deleteButton)
                 .shouldBe(visible, enabled)
                 .click();
     }
@@ -38,17 +44,13 @@ public class CartPage {
     public void verifyItemRemovedNotification(String itemArticle) {
         $(".basket-items-list-item-notification-removed")
                 .shouldBe(visible)
-                .shouldHave(text("был удален из корзины"))
+                .shouldHave(text("был удален из корзина"))
                 .shouldHave(text(itemArticle));
     }
 
     public void verifyRestoreButtonVisible() {
         $("[data-entity='basket-item-restore-button']").shouldBe(visible);
     }
-
-
-    private final SelenideElement articleNumber = $("div[data-column-property-code='PROPERTY_CML2_ARTICLE_VALUE']");
-    private final SelenideElement productName = $("div[data-column-property-code='PREVIEW_TEXT'] a");
 
     public CartPage verifyArticleNumber(String expectedArticle) {
         articleNumber.shouldHave(text(expectedArticle));
@@ -59,5 +61,4 @@ public class CartPage {
         productName.shouldHave(text(expectedProductName));
         return this;
     }
-
 }

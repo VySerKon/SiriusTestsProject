@@ -9,11 +9,16 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class CatalogPage {
     private final SelenideElement categoriesContainer = $(".card-categories");
+    private final SelenideElement addToCartButton = $("#bx_3966226736_59406_7e1b8e3524755c391129a9d7e6f2d206_buy_link");
+    private final SelenideElement popupCloseButton = $(".popup-window-close-icon.popup-window-titlebar-close-icon");
+    private final SelenideElement subcategoriesContainer = $(".card-category.-is-visible .card-category__list");
+
     public CatalogPage openCatalog() {
         open("/catalog");
         categoriesContainer.shouldBe(visible, Duration.ofSeconds(30));
         return this;
     }
+
     public CatalogPage hoverCategory(String categoryName) {
         SelenideElement category = categoriesContainer
                 .$$(".card-category__title a")
@@ -23,10 +28,11 @@ public class CatalogPage {
         category.hover();
         return this;
     }
+
     public CatalogPage verifySubcategoriesContain(String categoryName, List<String> expectedSubcategories) {
         hoverCategory(categoryName);
-        SelenideElement subcategoriesContainer = $(".card-category.-is-visible .card-category__list")
-                .shouldBe(visible);
+        subcategoriesContainer.shouldBe(visible);
+
         for (String subcategory : expectedSubcategories) {
             subcategoriesContainer
                     .$$(".card-category__list-item")
@@ -36,9 +42,6 @@ public class CatalogPage {
         }
         return this;
     }
-
-    private final SelenideElement addToCartButton = $("#bx_3966226736_59406_7e1b8e3524755c391129a9d7e6f2d206_buy_link");
-    private final SelenideElement popupCloseButton = $(".popup-window-close-icon.popup-window-titlebar-close-icon");
 
     public CatalogPage openElectricGuitarsSection() {
         open("https://siriusmusic.ru/catalog/gitary-i-gitarnoe-oborudovanie/elektrogitary/");

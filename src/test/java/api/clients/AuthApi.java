@@ -11,18 +11,20 @@ import static api.specs.BaseSpec.requestSpec;
 import static io.restassured.RestAssured.given;
 
 public class AuthApi {
-    private static final String EMAIL = "simpleaccounttest@mail.ru";
-    private static final String PASSWORD = "8343GGK4i";
 
     public static Response authorize(String phpsessid) {
+
+        String userLogin = System.getProperty("user_login", "");
+        String userPassword = System.getProperty("user_password", "");
+
         return given()
                 .spec(requestSpec)
                 .cookie("PHPSESSID", phpsessid)
                 .formParam("AUTH_FORM", "Y")
                 .formParam("TYPE", "AUTH")
                 .formParam("backurl", "/login/")
-                .formParam("USER_LOGIN", EMAIL)
-                .formParam("USER_PASSWORD", PASSWORD)
+                .formParam("USER_LOGIN", userLogin)
+                .formParam("USER_PASSWORD", userPassword)
                 .formParam("Login", "Войти")
                 .redirects().follow(false)
                 .when()
@@ -48,10 +50,6 @@ public class AuthApi {
                 .post("/?logout=yes")
                 .then()
                 .statusCode(200);
-    }
-
-    public static void clearCookies() {
-        WebDriverRunner.getWebDriver().manage().deleteAllCookies();
     }
 }
 

@@ -30,36 +30,4 @@ public class CartApi {
                 .when()
                 .get("/personal/cart/");
     }
-
-    public static boolean clearCart(String phpsessid, String bitrixLogin, String guestId) {
-        try {
-            Response clearResponse = given()
-                    .spec(BaseSpec.requestSpec)
-                    .cookie("PHPSESSID", phpsessid)
-                    .cookie("BITRIX_SM_LOGIN", bitrixLogin)
-                    .cookie("BITRIX_SM_GUEST_ID", guestId)
-                    .header("content-type", "application/x-www-form-urlencoded")
-                    .header("accept", "*/*")
-                    .header("origin", "https://siriusmusic.ru")
-                    .header("referer", "https://siriusmusic.ru/login/")
-                    .header("bx-ajax", "true")
-                    .header("priority", "u=1, i")
-                    .formParam("delete", "all")
-                    .when()
-                    .post("/ajax/getSmallBasketProducts.php");
-
-            if (clearResponse.statusCode() != 200) {
-                System.err.println("Clear cart failed. Status: " + clearResponse.statusCode());
-                return false;
-            }
-
-            Response cartResponse = getCartContent(phpsessid, bitrixLogin);
-            String cartContent = cartResponse.getBody().asString();
-
-            return !cartContent.contains("cart-item") && !cartContent.contains("basket-item");
-        } catch (Exception e) {
-            System.err.println("Exception during cart clearing: " + e.getMessage());
-            return false;
-        }
-    }
 }

@@ -1,5 +1,6 @@
 package ui.pages;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import java.time.Duration;
@@ -11,6 +12,14 @@ public class MainPage {
     private final SelenideElement categoriesSection = $("section.section_catalog-quick-categories");
     private final SelenideElement quickCategories = $(".catalog-quick-categories");
     private final SelenideElement topMenu = $("nav.navigation");
+    private final SelenideElement searchInput = $("#title-search-input");
+    private final SelenideElement cartLink = $("a[href='/personal/cart/']");
+
+    private final ElementsCollection categoryLinks = quickCategories.$$x(".//a[contains(@class, 'catalog-quick-categories__item')]");
+    private final ElementsCollection topMenuLinks = topMenu.$$x(".//a[contains(@class, 'navigation__link')]");
+    private final SelenideElement pageTitle = $("h1");
+    private final SelenideElement noteText = $(".notetext");
+    private final SelenideElement productTitle = $(".card-product__title");
 
     public MainPage openMainPage() {
         open("/");
@@ -20,21 +29,17 @@ public class MainPage {
 
     public MainPage activateCategoriesBlock() {
         executeJavaScript("return document.readyState").equals("complete");
-
         categoriesSection.scrollIntoView("{block: 'center'}");
-
         categoriesSection
                 .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldBe(interactable, Duration.ofSeconds(10))
                 .click();
-
         quickCategories.shouldBe(visible, Duration.ofSeconds(15));
         return this;
     }
 
     public MainPage clickCategoryByName(String categoryName) {
-        quickCategories
-                .$$x(".//a[contains(@class, 'catalog-quick-categories__item')]")
+        categoryLinks
                 .findBy(text(categoryName))
                 .shouldBe(visible, Duration.ofSeconds(10))
                 .scrollIntoView("{block: 'center', behavior: 'smooth'}")
@@ -45,8 +50,7 @@ public class MainPage {
     }
 
     public MainPage clickTopMenuLink(String linkText) {
-        topMenu
-                .$$x(".//a[contains(@class, 'navigation__link')]")
+        topMenuLinks
                 .findBy(text(linkText))
                 .shouldBe(visible, Duration.ofSeconds(10))
                 .shouldBe(interactable, Duration.ofSeconds(5))
@@ -55,17 +59,13 @@ public class MainPage {
     }
 
     public void verifyCategoryTitle(String expectedTitle) {
-        $("h1").shouldHave(text(expectedTitle), Duration.ofSeconds(15));
+        pageTitle.shouldHave(text(expectedTitle), Duration.ofSeconds(15));
     }
-
 
     public MainPage verifyPageTitle(String expectedTitle) {
-        $("h1").shouldHave(text(expectedTitle), Duration.ofSeconds(15));
+        pageTitle.shouldHave(text(expectedTitle), Duration.ofSeconds(15));
         return this;
     }
-
-
-    private final SelenideElement searchInput = $("#title-search-input");
 
     public MainPage searchFor(String query) {
         searchInput
@@ -76,9 +76,9 @@ public class MainPage {
 
     public MainPage verifySearchResults(String expectedText) {
         if (expectedText.contains("ничего не найдено")) {
-            $(".notetext").shouldHave(text(expectedText));
+            noteText.shouldHave(text(expectedText));
         } else {
-            $(".card-product__title").shouldHave(text(expectedText));
+            productTitle.shouldHave(text(expectedText));
         }
         return this;
     }
@@ -91,8 +91,6 @@ public class MainPage {
     public FilterPage openFilters() {
         return new FilterPage();
     }
-
-    private final SelenideElement cartLink = $("a[href='/personal/cart/']");
 
     public MainPage openCart() {
         cartLink.scrollIntoView("{block: 'center'}").click();
