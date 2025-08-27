@@ -1,5 +1,5 @@
 # Проект автоматизации тестирования магазина музыкальных инструментов [SIRIUS](https://siriusmusic.ru/)
-<img src="images/SiriusIcon.jpg">
+<a href="https://siriusmusic.ru/"><img src="images/SiriusIcon.jpg"></a>
 
 
 ## Содержание:
@@ -13,14 +13,14 @@
 
 ## <a name="Технологии и инструменты">Технологии и инструменты</a>
 <p  align="center">
-  <code><img width="8%" title="IntelliJ IDEA" src="images/IDEA-logo.svg"></code>
-  <code><img width="8%" title="Java" src="images/java-logo.svg"></code>
-  <code><img width="8%" title="Selenide" src="images/selenide-logo.svg"></code>
-  <code><img width="8%" title="Selenoid" src="images/selenoid-logo.svg"></code>
-  <code><img width="8%" title="Gradle" src="images/gradle-logo.svg"></code>
-  <code><img width="8%" title="JUnit5" src="images/junit5-logo.svg"></code>
-  <code><img width="8%" title="Allure Report" src="images/allure-Report-logo.svg"></code>
-  <code><img width="8%" title="Jenkins" src="images/jenkins-logo.svg"></code>
+<code><a href="https://www.jetbrains.com/idea/"><img width="8%" title="IntelliJ IDEA" src="images/IDEA-logo.svg"></a></code>
+<code><a href="https://www.java.com/"><img width="8%" title="Java" src="images/java-logo.svg"></a></code>
+<code><a href="https://selenide.org/"><img width="8%" title="Selenide" src="images/selenide-logo.svg"></a></code>
+<code><a href="https://aerokube.com/selenoid/"><img width="8%" title="Selenoid" src="images/selenoid-logo.svg"></a></code>
+<code><a href="https://gradle.org/"><img width="8%" title="Gradle" src="images/gradle-logo.svg"></a></code>
+<code><a href="https://junit.org/junit5/"><img width="8%" title="JUnit5" src="images/junit5-logo.svg"></a></code>
+<code><a href="https://allurereport.org/"><img width="8%" title="Allure Report" src="images/allure-Report-logo.svg"></a></code>
+<code><a href="https://www.jenkins.io/"><img width="8%" title="Jenkins" src="images/jenkins-logo.svg"></a></code>
  </p>
 
 - `JUnit 5` служит основным фреймворком для написания и запуска тестов.
