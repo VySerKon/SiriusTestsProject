@@ -1,26 +1,26 @@
 # Проект автоматизации тестирования магазина музыкальных инструментов [SIRIUS](https://siriusmusic.ru/)
-<img src="images/SiriusIcon.jpg">
+<a href="https://siriusmusic.ru/"><img src="images/SiriusIcon.jpg"></a>
 
 
 ## Содержание:
 
 - [Технологии и инструменты](#Технологии-и-инструменты)
 - [Выполняемые проверки](#Выполняемые-проверки)
-- [Запуск тестов в Jenkins](#Запуск-в-Jenkins)
+- [Запуск тестов в Jenkins](#Запуск-тестов-в-Jenkins)
 - [Allure отчёт](#Allure-отчёт)
 - [Видео с примером запуска тестов в Selenoid](#video)
  
 
 ## <a name="Технологии и инструменты">Технологии и инструменты</a>
 <p  align="center">
-  <code><img width="8%" title="IntelliJ IDEA" src="images/IDEA-logo.svg"></code>
-  <code><img width="8%" title="Java" src="images/java-logo.svg"></code>
-  <code><img width="8%" title="Selenide" src="images/selenide-logo.svg"></code>
-  <code><img width="8%" title="Selenoid" src="images/selenoid-logo.svg"></code>
-  <code><img width="8%" title="Gradle" src="images/gradle-logo.svg"></code>
-  <code><img width="8%" title="JUnit5" src="images/junit5-logo.svg"></code>
-  <code><img width="8%" title="Allure Report" src="images/allure-Report-logo.svg"></code>
-  <code><img width="8%" title="Jenkins" src="images/jenkins-logo.svg"></code>
+<code><a href="https://www.jetbrains.com/idea/"><img width="8%" title="IntelliJ IDEA" src="images/IDEA-logo.svg"></a></code>
+<code><a href="https://www.java.com/"><img width="8%" title="Java" src="images/java-logo.svg"></a></code>
+<code><a href="https://selenide.org/"><img width="8%" title="Selenide" src="images/selenide-logo.svg"></a></code>
+<code><a href="https://aerokube.com/selenoid/"><img width="8%" title="Selenoid" src="images/selenoid-logo.svg"></a></code>
+<code><a href="https://gradle.org/"><img width="8%" title="Gradle" src="images/gradle-logo.svg"></a></code>
+<code><a href="https://junit.org/junit5/"><img width="8%" title="JUnit5" src="images/junit5-logo.svg"></a></code>
+<code><a href="https://allurereport.org/"><img width="8%" title="Allure Report" src="images/allure-Report-logo.svg"></a></code>
+<code><a href="https://www.jenkins.io/"><img width="8%" title="Jenkins" src="images/jenkins-logo.svg"></a></code>
  </p>
 
 - `JUnit 5` служит основным фреймворком для написания и запуска тестов.
@@ -42,7 +42,7 @@
 Реализован подход Page Object а также параметризация
 
 
-## Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/SiriusProject/)
+## <a name="Запуск тестов в Jenkins">Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/SiriusProject/)</a>
 Локально каждая группа тестов запускается командой ```gradle clean <Tag>``` , где ```<Tag>``` - это:
 - web_test
 - cart_test
@@ -65,7 +65,7 @@ ${TASK}
 <img src="images/paramscrin.JPG" alt="JenkinsBuildParameters" width="950">
 <img src="images/scrin1.JPG" alt="Jenkinsmain" width="950">
 
-## <a name="Allure отчёт">Allure отчёт</a> 
+## <a name="Allure отчёт">[Allure](https://jenkins.autotests.cloud/job/SiriusProject/20/allure/) отчёт</a> 
 
 После прогона тестов через страницу запусков в `Jenkins` есть возможность просмотреть результаты выполнения тестов в ` Report`
 На странице отчёта отображено общее количество запущенных тестов и процентное соотношение успешных и упавших тестов, подкреплённых диаграммой.
