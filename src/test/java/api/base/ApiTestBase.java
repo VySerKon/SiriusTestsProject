@@ -19,7 +19,7 @@ public class ApiTestBase {
 
     @AfterEach
     void apiCleanup() {
-        if (testPhpsessid != null && testAuthCookie != null && testGuestId != null) {
+        if (testPhpsessid != null && testAuthCookie != null) {
                 AuthApi.apiLogout(testPhpsessid, testAuthCookie);
                 testPhpsessid = null;
                 testAuthCookie = null;
