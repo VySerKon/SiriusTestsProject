@@ -1,13 +1,11 @@
 package ui.tests.auth;
 
 import api.clients.AuthApi;
-import api.clients.SessionApi;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 import ui.pages.PersonalPage;
-import ui.base.TestBase;
+import ui.TestBase;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

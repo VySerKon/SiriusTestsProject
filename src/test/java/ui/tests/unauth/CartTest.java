@@ -3,7 +3,7 @@ package ui.tests.unauth;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import ui.base.TestBase;
+import ui.TestBase;
 import ui.pages.CatalogPage;
 import ui.pages.CartPage;
 import ui.pages.MainPage;

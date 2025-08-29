@@ -5,7 +5,7 @@ import api.clients.CartApi;
 import com.codeborne.selenide.WebDriverRunner;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-import ui.base.TestBase;
+import ui.TestBase;
 import ui.pages.CartPage;
 
 

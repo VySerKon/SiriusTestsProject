@@ -1,7 +1,6 @@
 package ui.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 

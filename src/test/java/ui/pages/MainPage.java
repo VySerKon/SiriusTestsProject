@@ -22,7 +22,7 @@ public class MainPage {
     private final SelenideElement productTitle = $(".card-product__title");
 
     public MainPage openMainPage() {
-        open("/");
+        open("");
         categoriesSection.should(exist, Duration.ofSeconds(20));
         return this;
     }
