@@ -1,5 +1,6 @@
 package ui.pages;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import java.time.Duration;
 import java.util.List;
@@ -12,6 +13,8 @@ public class CatalogPage {
     private final SelenideElement addToCartButton = $("#bx_3966226736_59406_7e1b8e3524755c391129a9d7e6f2d206_buy_link");
     private final SelenideElement popupCloseButton = $(".popup-window-close-icon.popup-window-titlebar-close-icon");
     private final SelenideElement subcategoriesContainer = $(".card-category.-is-visible .card-category__list");
+    private final ElementsCollection categoryLinks = categoriesContainer.$$(".card-category__title a");
+    private final ElementsCollection subcategoryItems = subcategoriesContainer.$$(".card-category__list-item");
 
     public CatalogPage openCatalog() {
         open("/catalog");
@@ -20,8 +23,7 @@ public class CatalogPage {
     }
 
     public CatalogPage hoverCategory(String categoryName) {
-        SelenideElement category = categoriesContainer
-                .$$(".card-category__title a")
+        SelenideElement category = categoryLinks
                 .findBy(text(categoryName))
                 .scrollIntoView("{block: 'center'}");
         sleep(300);
@@ -34,8 +36,7 @@ public class CatalogPage {
         subcategoriesContainer.shouldBe(visible);
 
         for (String subcategory : expectedSubcategories) {
-            subcategoriesContainer
-                    .$$(".card-category__list-item")
+            subcategoryItems
                     .findBy(text(subcategory))
                     .scrollIntoView("{block: 'center'}")
                     .shouldBe(visible);

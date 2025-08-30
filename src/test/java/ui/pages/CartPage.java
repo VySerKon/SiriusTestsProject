@@ -17,6 +17,8 @@ public class CartPage {
     private final SelenideElement productName = $("div[data-column-property-code='PREVIEW_TEXT'] a");
     private final ElementsCollection itemContainers = $$(".basket-items-list-item-container");
     private final By deleteButton = By.cssSelector("[data-entity='basket-item-delete']");
+    private final SelenideElement removedNotification = $(".basket-items-list-item-notification-removed");
+    private final SelenideElement restoreButton = $("[data-entity='basket-item-restore-button']");
 
     public void verifyCartNotEmpty() {
         basketHeader.shouldBe(visible)
@@ -41,14 +43,13 @@ public class CartPage {
     }
 
     public void verifyItemRemovedNotification(String itemArticle) {
-        $(".basket-items-list-item-notification-removed")
-                .shouldBe(visible)
+        removedNotification.shouldBe(visible)
                 .shouldHave(text("был удален из корзина"))
                 .shouldHave(text(itemArticle));
     }
 
     public void verifyRestoreButtonVisible() {
-        $("[data-entity='basket-item-restore-button']").shouldBe(visible);
+        restoreButton.shouldBe(visible);
     }
 
     public CartPage verifyArticleNumber(String expectedArticle) {

@@ -22,7 +22,6 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
         RestAssured.baseURI = "https://siriusmusic.ru";
         Configuration.browser = System.getProperty("browserName", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "128.0");
         Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
 
 
@@ -36,13 +35,9 @@ public class TestBase {
                     "enableVNC", true,
                     "enableVideo", true
             ));
-
+            Configuration.browserVersion = System.getProperty("browserVersion", "128.0");
             Configuration.remote = String.format("https://%s:%s@%s/wd/hub", selenoidLogin, selenoidPassword, selenoidUrl);
             Configuration.browserCapabilities = capabilities;
-        } else {
-            Configuration.remote = null;
-            Configuration.browser = System.getProperty("browserName", "chrome");
-            Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
         }
     }
 

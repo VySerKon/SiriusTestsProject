@@ -1,5 +1,6 @@
 package ui.pages;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import java.time.Duration;
@@ -14,6 +15,9 @@ public class FilterPage {
     private final SelenideElement maxPriceInput = $("input#arCatalogFilter_125_MAX");
     private final SelenideElement casioCheckbox = $("label[for='arCatalogFilter_55_3300509212']");
     private final SelenideElement applyButton = $("input#set_filter");
+    private final SelenideElement layoutContent = $(".layout__content");
+    private final ElementsCollection productTitles = $$(".card-product__title");
+    private final ElementsCollection productPrices = $$(".card-product__price");
 
     public FilterPage scrollToFilters() {
         minPriceInput.scrollIntoView("{block: 'center'}");
@@ -35,7 +39,6 @@ public class FilterPage {
                         "smartFilter.keyup(arguments[0]);",
                 maxPriceInput
         );
-
 
         minPriceInput.shouldHave(value(""));
         maxPriceInput.shouldHave(value(""));
@@ -72,10 +75,10 @@ public class FilterPage {
     }
 
     private void verifyResults() {
-        $(".layout__content").scrollIntoView("{block: 'center'}");
-        $$(".card-product__title").shouldHave(sizeGreaterThan(0))
+        layoutContent.scrollIntoView("{block: 'center'}");
+        productTitles.shouldHave(sizeGreaterThan(0))
                 .forEach(title -> title.shouldHave(text("Casio")));
-        $$(".card-product__price").forEach(priceElement -> {
+        productPrices.forEach(priceElement -> {
             String priceText = priceElement.getText().replaceAll("\\D", "");
             int price = Integer.parseInt(priceText.isEmpty() ? "0" : priceText);
             assertThat(price).isBetween(10_000, 20_000);
