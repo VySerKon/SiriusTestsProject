@@ -9,7 +9,6 @@ public class ApiTestBase {
 
     protected static String testPhpsessid;
     protected static String testAuthCookie;
-    protected static String testGuestId;
 
     @BeforeAll
     static void setup() {

@@ -17,7 +17,7 @@ public class OpenPersonalUiTest extends TestBase {
 
     @Test
     public void testSuccessfulAuthorizationWithRedirect() {
-        open("/");
+        open("");
         String phpsessid = WebDriverRunner.getWebDriver().manage().getCookieNamed("PHPSESSID").getValue();
         assertNotNull(phpsessid, "PHPSESSID не получен");
 

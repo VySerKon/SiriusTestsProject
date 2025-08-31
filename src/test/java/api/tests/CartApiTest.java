@@ -5,10 +5,8 @@ import api.clients.*;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class CartApiTest extends ApiTestBase {
 

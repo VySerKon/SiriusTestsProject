@@ -19,6 +19,7 @@ import static io.qameta.allure.Allure.step;
 @Tag("SEARCH")
 public class SearchTest extends TestBase {
 
+    MainPage mainPage = new MainPage();
 
     static Stream<Arguments> searchTestData() {
         return Stream.of(
@@ -32,16 +33,15 @@ public class SearchTest extends TestBase {
     @DisplayName("Проверка поиска товаров")
     void testSearchFunctionality(String searchQuery, String expectedMessage) {
         step("Открыть главную страницу", () -> {
-            new MainPage().openMainPage();
+            mainPage.openMainPage();
         });
 
         step("Выполнить поиск по запросу: '" + searchQuery + "'", () -> {
-            new MainPage().searchFor(searchQuery);
+            mainPage.searchFor(searchQuery);
         });
 
         step("Проверить результаты поиска", () -> {
-            new MainPage().verifySearchResults(expectedMessage);
+            mainPage.verifySearchResults(expectedMessage);
         });
     }
-
 }

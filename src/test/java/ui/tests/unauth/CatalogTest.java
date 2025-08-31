@@ -21,6 +21,9 @@ import static io.qameta.allure.Allure.step;
 @Tag("CATALOG")
 public class CatalogTest extends TestBase {
 
+    MainPage mainPage = new MainPage();
+    CatalogPage catalogPage = new CatalogPage();
+
     static Stream<String> categoryNamesProvider() {
         return Stream.of(
                 "Клавишные инструменты",
@@ -56,19 +59,19 @@ public class CatalogTest extends TestBase {
     @DisplayName("Открытие категорий каталога")
     void testCategoryOpening(String categoryName) {
         step("Открыть главную страницу", () -> {
-            new MainPage().openMainPage();
+            mainPage.openMainPage();
         });
 
         step("Активировать блок категорий", () -> {
-            new MainPage().activateCategoriesBlock();
+            mainPage.activateCategoriesBlock();
         });
 
         step("Кликнуть на категорию: " + categoryName, () -> {
-            new MainPage().clickCategoryByName(categoryName);
+            mainPage.clickCategoryByName(categoryName);
         });
 
         step("Проверить заголовок категории", () -> {
-            new MainPage().verifyCategoryTitle(categoryName);
+            mainPage.verifyCategoryTitle(categoryName);
         });
     }
 
@@ -77,11 +80,11 @@ public class CatalogTest extends TestBase {
     @DisplayName("Проверка динамического отображения подкатегорий")
     void verifyCategoryContainsSubcategories(String categoryName, List<String> expectedSubcategories) {
         step("Открыть каталог", () -> {
-            new CatalogPage().openCatalog();
+            catalogPage.openCatalog();
         });
 
         step("Проверить подкатегории для: " + categoryName, () -> {
-            new CatalogPage().verifySubcategoriesContain(categoryName, expectedSubcategories);
+            catalogPage.verifySubcategoriesContain(categoryName, expectedSubcategories);
         });
     }
 }

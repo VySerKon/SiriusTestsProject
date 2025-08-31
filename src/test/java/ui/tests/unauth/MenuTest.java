@@ -20,6 +20,8 @@ import static io.qameta.allure.Allure.step;
 @Tag("MENU")
 public class MenuTest extends TestBase {
 
+    MainPage mainPage = new MainPage();
+
     static Stream<Arguments> menuItemsProvider() {
         return Stream.of(
                 Arguments.of("Почему мы?", "Об интернет-магазине музыкальных инструментов Сириус"),
@@ -34,15 +36,15 @@ public class MenuTest extends TestBase {
     @DisplayName("Проверка переходов по пунктам меню")
     void testMenuNavigation(String menuItem, String expectedPageTitle) {
         step("Открыть главную страницу", () -> {
-            new MainPage().openMainPage();
+            mainPage.openMainPage();
         });
 
         step("Кликнуть на пункт меню: '" + menuItem + "'", () -> {
-            new MainPage().clickTopMenuLink(menuItem);
+            mainPage.clickTopMenuLink(menuItem);
         });
 
         step("Проверить заголовок страницы", () -> {
-            new MainPage().verifyPageTitle(expectedPageTitle);
+            mainPage.verifyPageTitle(expectedPageTitle);
         });
     }
 }

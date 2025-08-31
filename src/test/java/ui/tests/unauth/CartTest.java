@@ -19,31 +19,35 @@ import static io.qameta.allure.Allure.step;
     private static final String EXPECTED_ARTICLE = "STD MN GBK";
     private static final String EXPECTED_PRODUCT_NAME = "EVH Wolfgang STD MN GBK Gloss Black электрогитара";
 
+    CatalogPage catalogPage = new CatalogPage();
+    MainPage mainPage = new MainPage();
+    CartPage cartPage = new CartPage();
+
     @Test
     @DisplayName("Добавление электрогитары в корзину и проверка содержимого")
     void testAddElectricGuitarToCartAndVerify() {
         step("Открыть раздел каталога: 'Электрогитары'", () -> {
-            new CatalogPage().openElectricGuitarsSection();
+            catalogPage.openElectricGuitarsSection();
         });
 
         step("Добавить электрогитару EVH Wolfgang в корзину", () -> {
-            new CatalogPage().addGuitarToCart();
+            catalogPage.addGuitarToCart();
         });
 
         step("Закрыть всплывающее окно добавления товара", () -> {
-            new CatalogPage().closePopup();
+            catalogPage.closePopup();
         });
 
         step("Перейти в корзину", () -> {
-            new MainPage().openCart();
+            mainPage.openCart();
         });
 
         step("Проверить, что артикул товара соответствует ожидаемому: " + EXPECTED_ARTICLE, () -> {
-            new CartPage().verifyArticleNumber(EXPECTED_ARTICLE);
+            cartPage.verifyArticleNumber(EXPECTED_ARTICLE);
         });
 
         step("Проверить, что название товара соответствует ожидаемому: " + EXPECTED_PRODUCT_NAME, () -> {
-            new CartPage().verifyProductName(EXPECTED_PRODUCT_NAME);
+            cartPage.verifyProductName(EXPECTED_PRODUCT_NAME);
         });
     }
 }

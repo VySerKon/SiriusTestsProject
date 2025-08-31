@@ -6,7 +6,7 @@ public class SessionApi {
     public static String getPhpSessId() {
         return given()
                 .when()
-                .get("/") // Главная страница
+                .get("")
                 .then()
                 .statusCode(200)
                 .extract()
