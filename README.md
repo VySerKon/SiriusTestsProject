@@ -1,1 +1,1 @@
-# SiriusTestsProject
+# SiriusTestsProject - см. ветку project
